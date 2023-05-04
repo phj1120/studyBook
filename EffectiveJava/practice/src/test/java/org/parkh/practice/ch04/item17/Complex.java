@@ -1,4 +1,4 @@
-package org.parkh.practice.ch04.item19;
+package org.parkh.practice.ch04.item17;
 
 public final class Complex {
     private final double re;

@@ -1,4 +1,4 @@
-package org.parkh.practice.ch04.item19;
+package org.parkh.practice.ch04.item17;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 @Slf4j
-public class Item19 {
+public class Item17 {
 
     @Test
     void complex() {
