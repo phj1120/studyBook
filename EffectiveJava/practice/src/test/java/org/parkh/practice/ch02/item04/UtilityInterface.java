@@ -1,6 +1,6 @@
 package org.parkh.practice.ch02.item04;
 
-interface UtilityInterface {
+public interface UtilityInterface {
 
     int sum(int a, int b);
 
