@@ -2,6 +2,7 @@ package com.parkh.cleancode.ch14;
 
 import com.parkh.cleancode.ch14.args.Args;
 import com.parkh.cleancode.ch14.args.exception.ArgsException;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -36,18 +37,19 @@ class ArgsTests {
 
     @Test
     public void args() {
-//        String[] args = {"-lpd", "true", "8080", "/home"};
-        String[] args = {"-l", "true", "-p", "8080", "-d", "/home"};
+        String[] args = {"-l", "-p", "8080", "-d", "/home"};
 
         try {
-            Args arg = new Args("l,p#,d*", args);
+            Args arg = new Args("l,f,p#,d*", args);
             boolean logging = arg.getBoolean('l');
+            boolean falseValue = arg.getBoolean('f');
             int port = arg.getInt('p');
             String directory = arg.getString('d');
 
-            System.out.println("logging = " + logging);
-            System.out.println("port = " + port);
-            System.out.println("directory = " + directory);
+            Assertions.assertThat(logging).isTrue();
+            Assertions.assertThat(falseValue).isFalse();
+            Assertions.assertThat(port).isEqualTo(8080);
+            Assertions.assertThat(directory).isEqualTo("/home");
         } catch (ArgsException e) {
             throw new RuntimeException(e);
         }
